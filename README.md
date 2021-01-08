@@ -7,7 +7,7 @@ shapely.lp is the output file from cplex solver, which presents the optimization
 
 The results of the exercises:
 
-at leat an excess is positive, shapely value is not in the core. SHAME!
+at leat an excess is positive, shapely value imputation is not in the core. SHAME!
 
 
 Shapely value based Payment G1:2190.0
