@@ -20,7 +20,7 @@ VCG Payment G2:2150
 VCG Payment D1:-1680
 VCG Payment D2:-1000
 
-The results of core:
+One imputation result in the core:
 x_G1=600.0
 x_G2=200.0
 x_D1=2020.0
