@@ -87,7 +87,7 @@ def core_check(SW, payoff_vals):
         exs.append(vs-sum_payoff_val)
     for exs_k in exs:
         if exs_k>ZEROTOL:
-             print("at leat an excess is positive, shapely value is not in the core.")
+             print("at leat an excess is positive, shapley value imputation is not in the core.")
     return exs
 
 ZEROTOL=1E-6
@@ -100,8 +100,7 @@ print(exs)
 # the utility function of all 4 players: G1, G2, D1, D2
 Ws=[-90*12, -60*20, 100*40, 35*50]
 # payment for each player
-xs=(np.array(payoff_vals)-np.array(Ws)).tolist()
-# VCG results
+
 print("Shapley value based Payment G1:{}".format(payoff_vals[0]-Ws[0]))
 print("Shapley value based Payment G2:{}".format(payoff_vals[1]-Ws[1]))
 print("Shapley value based Payment D1:{}".format(payoff_vals[2]-Ws[2]))
