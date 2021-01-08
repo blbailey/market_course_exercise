@@ -100,10 +100,10 @@ Ws=[-90*12, -60*20, 100*40, 35*50]
 # payment for each player
 xs=(np.array(shapely_vals)-np.array(Ws)).tolist()
 # VCG results
-print("Shapely Payment G1:{}".format(shapely_vals[0]-Ws[0]))
-print("Shapely Payment G2:{}".format(shapely_vals[1]-Ws[1]))
-print("Shapely Payment D1:{}".format(shapely_vals[2]-Ws[2]))
-print("Shapely Payment D2:{}".format(shapely_vals[3]-Ws[3]))
+print("Shapely value based Payment G1:{}".format(shapely_vals[0]-Ws[0]))
+print("Shapely value based Payment G2:{}".format(shapely_vals[1]-Ws[1]))
+print("Shapely value based Payment D1:{}".format(shapely_vals[2]-Ws[2]))
+print("Shapely value based Payment D2:{}".format(shapely_vals[3]-Ws[3]))
 
 
 # VCG results
