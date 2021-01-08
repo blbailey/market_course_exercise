@@ -10,10 +10,10 @@ The results of the exercises:
 at leat an excess is positive, shapely value is not in the core. SHAME!
 
 
-Shapely Payment G1:2190.0
-Shapely Payment G2:1783.3333333333333
-Shapely Payment D1:-2665.0
-Shapely Payment D2:-1308.3333333333335
+Shapely value based Payment G1:2190.0
+Shapely value based Payment G2:1783.3333333333333
+Shapely value based Payment D1:-2665.0
+Shapely value based Payment D2:-1308.3333333333335
 
 VCG Payment G1:2950
 VCG Payment G2:2150
