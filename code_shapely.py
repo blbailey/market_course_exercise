@@ -30,14 +30,6 @@ SW={
 }
 
 
-# def generate_bin_S(digits):
-#     """N players; first generate all possible coalition for N-1 players and then the last can
-#      decide to join or not; digits=N-1"""
-#     eles=[]
-#     for k in range(2**digits):
-#         ele=str(int(k/4))+str(int((k%4)/2))+str(int((k%4)%2))
-#         eles.append(ele)
-#     return eles
 
 def generate_bin_S(digits):
     """N players; first generate all possible coalition for N-1 players and then the last can
