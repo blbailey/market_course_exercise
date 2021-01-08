@@ -60,9 +60,11 @@ def select_ones(eles, ones, idx):
             ele_wo.append("".join(ele_list_copy))
     return ele_with, ele_wo
 # ele_with, ele_wo= select_ones(eles, ones, idx)
-import math
-def payoff_shape_value(SW, eles):
-    shapely_vals=[]
+
+
+def payoff_shapley_value(SW, eles):
+    import math
+    payoff_vals=[]
     for idx in range(0,N):
         value_sp=0
         for ss in range(1,N):
@@ -72,38 +74,38 @@ def payoff_shape_value(SW, eles):
             for k in range(len(ele_with)):
                 sw_marg_ss=sw_marg_ss+SW[ele_with[k]]-SW[ele_wo[k]]
             value_sp=value_sp+coef*sw_marg_ss
-        shapely_vals.append(value_sp)
-    return shapely_vals
-def core_check(SW, shapely_vals):
+        payoff_vals.append(value_sp)
+    return payoff_vals
+def core_check(SW, payoff_vals):
     exs=[]
     for ele, val in SW.items():
         vs=val;
-        sum_shapely_val=0.;
+        sum_payoff_val=0.;
         for k in range(4):
             if ele[k]=='1':
-                sum_shapely_val=sum_shapely_val+shapely_vals[k]
-        exs.append(vs-sum_shapely_val)
+                sum_payoff_val=sum_payoff_val+payoff_vals[k]
+        exs.append(vs-sum_payoff_val)
     for exs_k in exs:
         if exs_k>ZEROTOL:
-             print("at leat an excess is positive, shapely value is not in the core. SHAME!")
+             print("at leat an excess is positive, shapely value is not in the core.")
     return exs
 
 ZEROTOL=1E-6
 N=4 #number of players
 eles=generate_bin_S(digits=N-1)
-shapely_vals=payoff_shape_value(SW, eles)
-exs=core_check(SW, shapely_vals)
+payoff_vals=payoff_shapley_value(SW, eles)
+exs=core_check(SW, payoff_vals)
 print(exs)
 
 # the utility function of all 4 players: G1, G2, D1, D2
 Ws=[-90*12, -60*20, 100*40, 35*50]
 # payment for each player
-xs=(np.array(shapely_vals)-np.array(Ws)).tolist()
+xs=(np.array(payoff_vals)-np.array(Ws)).tolist()
 # VCG results
-print("Shapely value based Payment G1:{}".format(shapely_vals[0]-Ws[0]))
-print("Shapely value based Payment G2:{}".format(shapely_vals[1]-Ws[1]))
-print("Shapely value based Payment D1:{}".format(shapely_vals[2]-Ws[2]))
-print("Shapely value based Payment D2:{}".format(shapely_vals[3]-Ws[3]))
+print("Shapley value based Payment G1:{}".format(payoff_vals[0]-Ws[0]))
+print("Shapley value based Payment G2:{}".format(payoff_vals[1]-Ws[1]))
+print("Shapley value based Payment D1:{}".format(payoff_vals[2]-Ws[2]))
+print("Shapley value based Payment D2:{}".format(payoff_vals[3]-Ws[3]))
 
 
 # VCG results
@@ -114,7 +116,7 @@ print("VCG Payment D2:{}".format(SW['1111']-SW['1110']-Ws[3]))
 
 
 # ============================exercise 3=======================
-name_var = ['x_G1', 'x_G2'] + ['x_D1', 'x_D2'] + ['Highest_x'];
+name_var = ['x_G1', 'x_G2'] + ['x_D1', 'x_D2'] + ['Highest_e'];
 bound_low=[0,0,0,0,-cplex.infinity]
 bound_up=[cplex.infinity]*5
 objective = [0, 0, 0, 0, 1]
